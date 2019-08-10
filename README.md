@@ -3,6 +3,7 @@
 See how much of a movie's budget you miss while blinking. Built with Vue and powered by the [TMDB API](https://www.themoviedb.org/documentation/api).
 
 [Check out the demo:](https://www.themoviedb.org/documentation/api)
+![Demo Screenshot](./demo.png)
 
 I originally built this project with PHP (I don't know why either), and recently decided to port it over to Vue. I added the ability to have multiple search results, and did a huge style overhaul.
 
