@@ -111,21 +111,30 @@ export default {
       }
     },
 
+    //Calculate the total amount of money missed from blinking
     totalMissed() {
-      //Calculate the total amount of money missed from blinking
-      var totalMissed =
-        ((this.movieData.runtime * this.blinksPerMinute * this.blinkLength) /
-          60) *
-        (this.movieData.budget / this.movieData.runtime);
+      //Amount of time spent blinking, in minutes
+      var timeSpentBlinking =
+        (this.movieData.runtime * this.blinksPerMinute * this.blinkLength) / 60;
 
+      //Amount of money missed = total time spent blinking in minutes * cost per minute
+      var totalMissed =
+        timeSpentBlinking * (this.movieData.budget / this.movieData.runtime);
+
+      //Format number to string with commas
       return totalMissed.toLocaleString("en-US", { minimumFractionDigits: 2 });
     },
 
+    //Calculate the cost per blink
     costPerBlink() {
-      //Calculate the cost per blink
+      //Length of one blink in minutes
+      var blinkTimeInMinutes = this.blinkLength / 60;
+
+      //Cost per blink = length of one blink in minutes * cost per minute
       var costPerBlink =
-        (this.blinkLength / 60) *
-        (this.movieData.budget / this.movieData.runtime);
+        blinkTimeInMinutes * (this.movieData.budget / this.movieData.runtime);
+
+      //Format number to string with commas
       return costPerBlink.toLocaleString("en-US", { minimumFractionDigits: 2 });
     }
   },
