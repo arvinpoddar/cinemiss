@@ -7,19 +7,15 @@
         </div>
         <h1>{{movieData.title}}</h1>
         <p style="margin-top: 2px;">"{{movieData.tagline}}"</p>
-        <div v-if="this.movieData.budget" style="margin-top: 10px;">
+        <div v-if="movieData.budget && movieData.runtime" style="margin: 15px auto 25px auto;">
           <h3>Budget: ${{movieData.budget.toLocaleString('en-US')}}</h3>
           <h3>Runtime: {{movieData.runtime.toLocaleString('en-US')}} minutes</h3>
           <h3>Cost per Minute: ${{costPerMinute}}</h3>
         </div>
-        <div
-          class="btn primary"
-          style="margin-top: 15px;"
-          @click="$router.push('/')"
-        >Search for another movie</div>
+        <div class="btn primary" @click="$router.push('/')">Search for another movie</div>
       </div>
       <div class="calculationDetails">
-        <div v-if="movieData.budget">
+        <div v-if="movieData.budget && movieData.runtime">
           <h1 style="margin-bottom: 10px;">Calculations:</h1>
           <p>
             By blinking during
@@ -45,7 +41,7 @@
         >Looks like there's no budget data available for this movie. Try searching for another movie. 🙁</h2>
       </div>
     </div>
-    <img src="../assets/loading.gif" alt="Loading" v-else />
+    <img src="../assets/loading.gif" alt="Loading" v-else style="max-width: 100px;" />
   </div>
 </template>
 
@@ -72,17 +68,13 @@ export default {
         .then(response => {
           this.loading = false;
           var movie = response.data;
-          console.log(movie);
           this.movieData = {
             title: movie.title,
-            release: movie.release_date,
             budget: movie.budget,
             runtime: movie.runtime,
             tagline: movie.tagline,
-            slug: movie.overview,
             posterPath: movie.poster_path
           };
-          console.log(this.movieData);
         })
         .catch(() => {
           this.loading = false;
@@ -106,6 +98,8 @@ export default {
           "en-US",
           { minimumFractionDigits: 2 }
         );
+      } else {
+        return;
       }
     },
 
@@ -219,7 +213,7 @@ export default {
   }
 
   .resultBox {
-    width: 95%;
+    width: 97%;
     flex-direction: column;
     margin: 0 auto;
     flex: none;

@@ -5,15 +5,8 @@
 </template>
 
 <script>
-import Search from "./components/Search.vue";
-import Result from "./components/Search.vue";
-
 export default {
-  name: "app",
-  components: {
-    Search,
-    Result
-  }
+  name: "app"
 };
 </script>
 
@@ -36,6 +29,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   min-width: 320px;
+  max-width: 1768px;
 }
 
 a,

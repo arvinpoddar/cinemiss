@@ -36,7 +36,12 @@
           <main class="modal__content" style="text-align: center;">
             <img class="loadingGif" src="../assets/loading.gif" alt="Loading" v-if="loading" />
             <div v-else class="movieCardContainer">
-              <MovieCard v-for="movie in searchResults" :key="movie.id" :load="movie"></MovieCard>
+              <div v-if="searchResults.length">
+                <MovieCard v-for="movie in searchResults" :key="movie.id" :load="movie"></MovieCard>
+              </div>
+              <div style="margin: 15px auto" v-else>
+                <h2>There aren't any movies that match this search. Try again 🙁</h2>
+              </div>
               <a
                 :data-micromodal-close="!loading"
               >Didn't find what you were looking for? Try a more specific search.</a>
@@ -61,8 +66,14 @@
             <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
           </header>
           <main class="modal__content">
-            <p>Movies are expensive. Really expensive. Cinemiss helps people see this by calculating the thousands (or millions) of dollars we miss just by blinking during the movie. Cinemiss is powered by the TMDB API, so it has data for nearly every movie. Try it out yourself, and let Cinemiss show you how much you're missing.</p>
-            <a>Developed by Arvin Poddar.</a>
+            <p>
+              Movies are expensive. Really expensive. Cinemiss helps people see this by calculating the millions of dollars we miss just by blinking during the movie. Cinemiss is powered by the
+              <a
+                href="https://www.themoviedb.org/documentation/api"
+              >TMDB API</a>, so it has data for nearly every movie. Try it out yourself, and let Cinemiss show you how much you're missing.
+            </p>
+            <br />
+            <a href="https://arvinpoddar.com">Developed by Arvin Poddar.</a>
           </main>
         </div>
       </div>
@@ -110,7 +121,6 @@ export default {
             results.length > 10
               ? (this.searchResults = results.slice(0, 10))
               : (this.searchResults = results);
-            console.log(this.searchResults);
           })
           .catch(() => {
             this.loading = false;
@@ -200,11 +210,16 @@ export default {
 
 @media screen and (max-width: 400px) {
   .searchBox {
-    width: 90%;
+    width: 93%;
+    padding: 30px 15px;
   }
 
   .searchBox .title {
     font-size: 30px;
+  }
+
+  .formWrap {
+    width: 100%;
   }
 }
 </style>
