@@ -11,9 +11,15 @@ const router = new Router({
         path: "/",
         component: Search
     },
+    //:id allows for dynamic paths, which will be used for the movie ids to call the API
     {
         path: "/movie/:id",
         component: Result
+    },
+    //Default path goes to the search page
+    {
+        path: "*",
+        component: Search
     }
     ]
 });

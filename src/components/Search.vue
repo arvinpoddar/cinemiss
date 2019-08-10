@@ -37,6 +37,7 @@
             <img class="loadingGif" src="../assets/loading.gif" alt="Loading" v-if="loading" />
             <div v-else class="movieCardContainer">
               <div v-if="searchResults.length">
+                <!--Create a movie card for each movie received from the api call-->
                 <MovieCard v-for="movie in searchResults" :key="movie.id" :load="movie"></MovieCard>
               </div>
               <div style="margin: 15px auto" v-else>
@@ -104,6 +105,7 @@ export default {
       if (this.search) {
         MicroModal.show("search");
         this.loading = true;
+        //Makes the get request using the search value
         Axios.get(`${this.$root.apiBase}search/movie`, {
           params: {
             api_key: process.env.VUE_APP_TMDB_API_KEY,
@@ -118,6 +120,7 @@ export default {
             var results = response.data.results.filter(
               movie => movie.release_date
             );
+            //Only return the first 10 search results
             results.length > 10
               ? (this.searchResults = results.slice(0, 10))
               : (this.searchResults = results);

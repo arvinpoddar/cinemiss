@@ -4,6 +4,7 @@ import router from "./router.js"
 import VueNoty from 'vuejs-noty'
 import "vuejs-noty/dist/vuejs-noty.css"
 
+//VueNoty for notification alerts (shown only if something goes wrong)
 Vue.use(VueNoty)
 Vue.config.productionTip = false
 
@@ -11,6 +12,7 @@ new Vue({
   router,
   data() {
     return {
+      //Base url for all api calls
       apiBase: "https://api.themoviedb.org/3/"
     }
   },

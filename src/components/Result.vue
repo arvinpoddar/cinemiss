@@ -58,16 +58,20 @@ export default {
     };
   },
   methods: {
+    //Get information about the movie based on the id passed via the path (url)
     getMovieInfo() {
       this.loading = true;
+      //Make request using id param
       Axios.get(`${this.$root.apiBase}movie/${this.$route.params.id}`, {
         params: {
+          //API key is called from the environment variable
           api_key: process.env.VUE_APP_TMDB_API_KEY
         }
       })
         .then(response => {
           this.loading = false;
           var movie = response.data;
+          //Populate the movieData object with received API data
           this.movieData = {
             title: movie.title,
             budget: movie.budget,
@@ -93,6 +97,7 @@ export default {
     },
 
     costPerMinute() {
+      //Calculate the cost per minute of the movie assuming both runtime and budget are available
       if (this.movieData.budget && this.movieData.runtime) {
         return (this.movieData.budget / this.movieData.runtime).toLocaleString(
           "en-US",
@@ -104,6 +109,7 @@ export default {
     },
 
     totalMissed() {
+      //Calculate the total amount of money missed from blinking
       var totalMissed =
         ((this.movieData.runtime * this.blinksPerMinute * this.blinkLength) /
           60) *
@@ -113,12 +119,14 @@ export default {
     },
 
     costPerBlink() {
+      //Calculate the cost per blink
       var costPerBlink =
         (this.blinkLength / 60) *
         (this.movieData.budget / this.movieData.runtime);
       return costPerBlink.toLocaleString("en-US", { minimumFractionDigits: 2 });
     }
   },
+  //Get info about the movie when the page is first loaded
   mounted() {
     this.getMovieInfo();
   }
