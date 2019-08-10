@@ -41,7 +41,7 @@ export default {
     correctPosterPath() {
       //Shows the default poster image if no path is provided
       if (this.posterPath) {
-        return "http://image.tmdb.org/t/p/w185/" + this.posterPath;
+        return "https://image.tmdb.org/t/p/w185/" + this.posterPath;
       } else {
         return require("../assets/noPoster.png");
       }
