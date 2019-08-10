@@ -1,4 +1,5 @@
 <template>
+  <!--COMPONENT VIEW FOR SINGULAR MOVIE PAGE AND CALCULATIONS -->
   <div class="resultWrap">
     <div class="resultBox" v-if="!loading">
       <div class="movieDetails">

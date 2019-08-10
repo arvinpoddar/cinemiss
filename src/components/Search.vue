@@ -1,4 +1,5 @@
 <template>
+  <!--COMPONENT VIEW FOR DEFAULT SEARCH PAGE -->
   <div class="searchWrap">
     <div class="searchBox">
       <img src="../assets/logoColor.png" alt="Logo" />

@@ -1,4 +1,5 @@
 <template>
+  <!--COMPONENT FOR MOVIE SEARCH RESULTS LIST -->
   <router-link :to="`/movie/${id}`">
     <div class="cardBody">
       <div class="poster">
