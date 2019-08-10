@@ -9,7 +9,7 @@
           </div>
           <h1>{{movieData.title}}</h1>
         </a>
-        <p style="margin-top: 2px;">"{{movieData.tagline}}"</p>
+        <p style="margin-top: 2px;" v-if="movieData.tagline">"{{movieData.tagline}}"</p>
         <div v-if="movieData.budget && movieData.runtime" style="margin: 15px auto 25px auto;">
           <h3>Budget: ${{movieData.budget.toLocaleString('en-US')}}</h3>
           <h3>Runtime: {{movieData.runtime.toLocaleString('en-US')}} minutes</h3>
