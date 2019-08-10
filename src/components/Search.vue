@@ -98,6 +98,7 @@ export default {
     return {
       loading: false,
       search: "",
+      //Array where movie objects will be stored (these are the search results)
       searchResults: []
     };
   },
@@ -136,6 +137,7 @@ export default {
     }
   },
   mounted() {
+    //Initialize the modals when this component view is mounted. Do not remove.
     MicroModal.init();
   }
 };
