@@ -3,10 +3,12 @@
   <div class="resultWrap">
     <div class="resultBox" v-if="!loading">
       <div class="movieDetails">
-        <div class="poster">
-          <img :src="correctPosterPath" />
-        </div>
-        <h1>{{movieData.title}}</h1>
+        <a :href="`https://www.themoviedb.org/movie/${this.$route.params.id}`" target="_blank">
+          <div class="poster">
+            <img :src="correctPosterPath" />
+          </div>
+          <h1>{{movieData.title}}</h1>
+        </a>
         <p style="margin-top: 2px;">"{{movieData.tagline}}"</p>
         <div v-if="movieData.budget && movieData.runtime" style="margin: 15px auto 25px auto;">
           <h3>Budget: ${{movieData.budget.toLocaleString('en-US')}}</h3>
@@ -135,6 +137,15 @@ export default {
 </script>
 
 <style scoped>
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .resultWrap {
   width: 100vw;
   min-height: 100vh;
