@@ -4,7 +4,7 @@
       <img src="../assets/logoColor.png" alt="Logo" />
       <h1 class="title">Cinemiss</h1>
       <h3 style="margin-bottom: 10px; font-weight: normal;">How much have you been missing?</h3>
-      <form @submit="searchMovies" action="#">
+      <form @submit.prevent="searchMovies" action="#">
         <div class="formWrap">
           <input type="text" v-model="search" placeholder="Movie Title" required />
           <button
@@ -130,7 +130,7 @@ export default {
 <style scoped>
 .searchWrap {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -178,9 +178,7 @@ export default {
   -o-transition: 0.5s;
 }
 
-input[type="password"]:focus,
-input[type="email"]:focus,
-input[type="text"]:focus {
+.searchBox input[type="text"]:focus {
   background-color: #e4f5ef !important;
 }
 

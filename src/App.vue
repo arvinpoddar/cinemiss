@@ -32,7 +32,10 @@ body {
   background: -moz-linear-gradient(227deg, #66fee4, #236ae0);
   background: -o-linear-gradient(227deg, #66fee4, #236ae0);
   background: linear-gradient(227deg, #66fee4, #236ae0);
-  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-width: 320px;
 }
 
 a,
@@ -69,13 +72,6 @@ a:hover {
   -o-transition: 0.5s;
 
   text-align: center;
-  display: table-cell;
-}
-
-.btn.microLoader {
-  height: 0.875rem;
-  margin-left: 10px;
-  vertical-align: middle;
 }
 
 .btn.primary {

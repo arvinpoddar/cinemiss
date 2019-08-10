@@ -2,7 +2,7 @@
   <router-link :to="`/movie/${id}`">
     <div class="cardBody">
       <div class="poster">
-        <img :src="correctPath" />
+        <img :src="correctPosterPath" />
       </div>
       <div class="movieInfo">
         <h1>{{title}}</h1>
@@ -37,7 +37,7 @@ export default {
         return this.slug;
       }
     },
-    correctPath() {
+    correctPosterPath() {
       //Shows the default poster image if no path is provided
       if (this.posterPath) {
         return "http://image.tmdb.org/t/p/w185/" + this.posterPath;
