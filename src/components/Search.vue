@@ -37,7 +37,9 @@
             <img class="loadingGif" src="../assets/loading.gif" alt="Loading" v-if="loading" />
             <div v-else class="movieCardContainer">
               <MovieCard v-for="movie in searchResults" :key="movie.id" :load="movie"></MovieCard>
-              <p>Didn't find what you were looking for? Try a more specific search.</p>
+              <a
+                :data-micromodal-close="!loading"
+              >Didn't find what you were looking for? Try a more specific search.</a>
             </div>
           </main>
         </div>
@@ -101,7 +103,10 @@ export default {
         })
           .then(response => {
             this.loading = false;
-            var results = response.data.results;
+            /*Only add released movies to the search results*/
+            var results = response.data.results.filter(
+              movie => movie.release_date
+            );
             results.length > 10
               ? (this.searchResults = results.slice(0, 10))
               : (this.searchResults = results);
