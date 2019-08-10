@@ -5,7 +5,7 @@ See how much of a movie's budget you miss while blinking. Built with Vue and pow
 [Check out the demo:](https://www.themoviedb.org/documentation/api)
 ![Demo Screenshot](./demo.png)
 
-I originally built this project with PHP (I don't know why either), and recently decided to port it over to Vue. I added the ability to have multiple search results, and did a huge style overhaul.
+I originally built this project a year ago with PHP (I'm not sure why I picked PHP either), and recently decided to port it over to Vue. I added the ability to have see search results for a query, and did a huge style overhaul. This is a simple enough project for anyone getting started with Vue to follow along with.
 
 ## Project setup
 
