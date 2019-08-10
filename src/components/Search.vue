@@ -104,9 +104,9 @@ export default {
       if (this.search) {
         MicroModal.show("search");
         this.loading = true;
-        Axios.get("https://api.themoviedb.org/3/search/movie", {
+        Axios.get(`${this.$root.apiBase}search/movie`, {
           params: {
-            api_key: "cfb45e079d971b3d8074a8d42036a70e",
+            api_key: process.env.VUE_APP_TMDB_API_KEY,
             language: "en-US",
             query: this.search,
             include_adult: false

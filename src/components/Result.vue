@@ -60,9 +60,9 @@ export default {
   methods: {
     getMovieInfo() {
       this.loading = true;
-      Axios.get(`https://api.themoviedb.org/3/movie/${this.$route.params.id}`, {
+      Axios.get(`${this.$root.apiBase}movie/${this.$route.params.id}`, {
         params: {
-          api_key: "cfb45e079d971b3d8074a8d42036a70e"
+          api_key: process.env.VUE_APP_TMDB_API_KEY
         }
       })
         .then(response => {

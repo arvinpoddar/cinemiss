@@ -9,5 +9,10 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  data() {
+    return {
+      apiBase: "https://api.themoviedb.org/3/"
+    }
+  },
   render: h => h(App),
 }).$mount('#app')
