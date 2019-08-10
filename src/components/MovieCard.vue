@@ -1,16 +1,18 @@
 <template>
-  <div class="cardBody">
-    <div class="poster">
-      <img :src="correctPath" />
+  <router-link :to="`/movie/${id}`">
+    <div class="cardBody">
+      <div class="poster">
+        <img :src="correctPath" />
+      </div>
+      <div class="movieInfo">
+        <h1>{{title}}</h1>
+        <b>
+          <p>Released: {{year}}</p>
+        </b>
+        <p>{{trimmedSlug}}</p>
+      </div>
     </div>
-    <div class="movieInfo">
-      <h1>{{title}}</h1>
-      <b>
-        <p>Released: {{year}}</p>
-      </b>
-      <p>{{trimmedSlug}}</p>
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -19,6 +21,7 @@ export default {
   props: ["load"],
   data() {
     return {
+      id: this.load.id,
       title: this.load.title,
       posterPath: this.load.poster_path,
       slug: this.load.overview,
@@ -54,12 +57,30 @@ export default {
 .cardBody {
   width: 100%;
   background-color: white;
+  color: #262626;
   border-radius: 5px;
   box-shadow: 0 0 13px 0 rgba(47, 47, 47, 0.1);
   padding: 10px;
   margin: 10px auto;
   display: flex;
   align-items: center;
+  border: 1px solid #ffffff;
+
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.cardBody:hover {
+  border: 1px solid #35d3df;
+}
+
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 .poster img {
