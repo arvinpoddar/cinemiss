@@ -122,4 +122,11 @@ a:visited {
     font-size: 14px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .movieInfo h1 {
+    font-size: 25px;
+    margin-bottom: 2px;
+  }
+}
 </style>
