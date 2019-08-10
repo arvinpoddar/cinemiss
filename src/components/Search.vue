@@ -76,6 +76,8 @@
             </p>
             <br />
             <a href="https://arvinpoddar.com">Developed by Arvin Poddar.</a>
+            <br />
+            <a href="https://github.com/arvinpoddar/cinemiss">View on Github.</a>
           </main>
         </div>
       </div>

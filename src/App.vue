@@ -37,6 +37,7 @@ a:visited,
 a:hover {
   color: #236ae0;
   cursor: pointer;
+  text-decoration: none;
 }
 
 a:hover {

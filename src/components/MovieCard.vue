@@ -80,7 +80,7 @@ export default {
 a,
 a:hover,
 a:visited {
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
 }
 
